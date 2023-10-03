@@ -2,9 +2,10 @@
 // changed from var to const for clarity and readability
 // Function to generate a random password based off of submitted critirea
 function generatePassword() {
-    const length = parseInt(promt('enter password length:'), 10);
+    const length = parseInt(prompt('enter password length:'), 10);
 
-    if (isNaN(length) || length <= 0) {
+    // If statement to ensure the password is between 8 and 128
+    if (isNaN(length) || length < 8 || length > 128) {
         alert('Please enter a valid password length.');
         return '';
     }
