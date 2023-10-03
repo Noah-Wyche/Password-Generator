@@ -1,16 +1,16 @@
 // Welcome to the JavaScript!
-// changed from var to const for clarity and readability
+// Changed from var to const for clarity and readability
 // Function to generate a random password based off of submitted critirea
 function generatePassword() {
     // Promts the user to input the password length in a dialog box
     // Stores the users input as a base 10 integer and saves it to the constant variable 'length'
-    const length = parseInt(prompt('enter password length (Must be 8 or more characters):'), 10);
+    const length = parseInt(prompt('Enter password length (Must be 8 or more characters)'), 10);
 
     // If statement to ensure the password is between 8 and 128
     // Will prompt the user if the chosen length does not fit within the specifications
     // This will terminate the generation attempt
     if (isNaN(length) || length < 8 || length > 128) {
-        alert('Please enter a valid password length.');
+        alert('Please enter a valid password length (Cannot excede 128 characters)');
         return '';
     }
 
@@ -18,9 +18,9 @@ function generatePassword() {
     const lowercaseChars = 'abcdefghjklmnopqrstuvwxyz';
     const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numericChars = '0123456789';
-    const specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
+    const specialChars = '~!@#$%^&*()_+[]{}|;:,.<>?/';
 
-    //this is where the user will be promted on wether or not the character options will be included in this password generation
+    // This is where the user will be promted on wether or not the character options will be included in this password generation
     // Lowercase characters are included as default in the password generation so a password will always be displayed when no other options are selected
     let availableChars = lowercaseChars;  
     const includeUppercase = confirm('Include uppercase characters?');
