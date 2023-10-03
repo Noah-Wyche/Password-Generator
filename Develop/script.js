@@ -2,6 +2,7 @@
 // Changed from var to const for clarity and readability
 // Function to generate a random password based off of submitted critirea
 function generatePassword() {
+
     // Promts the user to input the password length in a dialog box
     // Stores the users input as a base 10 integer and saves it to the constant variable 'length'
     const length = parseInt(prompt('Enter password length (Must be 8 or more characters)'), 10);
@@ -60,3 +61,44 @@ function writePassword() {
 const generateBtn = document.querySelector('#generate');
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+// Here I am adding a feature to display the generated passwords in a list under the password generator box
+// The list resets when the browser is refreshed
+// Array to store generated passwords
+const generatedPasswords = [];
+
+// Write password to the #password input and save it
+function writePassword() {
+    const password = generatePassword();
+    const passwordText = document.querySelector("#password");
+  
+    // Add the generated password to the array
+    generatedPasswords.push(password);
+  
+    // Set the obtained password as the value of the #password input
+    passwordText.value = password;
+  
+    // Display the saved passwords
+    displaySavedPasswords();
+  }
+  
+  // Function to display the saved passwords
+  function displaySavedPasswords() {
+    const savedPasswordsDiv = document.querySelector("#savedPasswords");
+    savedPasswordsDiv.innerHTML = "";
+  
+    if (generatedPasswords.length === 0) {
+      savedPasswordsDiv.innerHTML = "<p>No passwords saved yet.</p>";
+      return;
+    }
+  
+    const passwordList = document.createElement("ul");
+    generatedPasswords.forEach((password, index) => {
+      const listItem = document.createElement("li");
+      listItem.textContent = `Password ${index + 1}: ${password}`;
+      passwordList.appendChild(listItem);
+    });
+  
+    savedPasswordsDiv.appendChild(passwordList);
+  }

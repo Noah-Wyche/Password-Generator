@@ -15,7 +15,7 @@ body,
 /* Changed the primary font family for the body of the html*/ 
 body {
   font-family: luminari, impact, sans-serif;
-  background-color: #f9fbfd;
+  background-color: #a9cdf1;
 }
 
 .wrapper {
@@ -28,7 +28,6 @@ body {
 header {
   text-align: center;
   padding: 10px;
-  padding-top: 0px;
   color: hsl(291, 55%, 29%);
   font-size: 50px;
 }
@@ -138,4 +137,22 @@ button[disabled] {
   .btn {
     font-size: 0.8rem;
   }
+}
+
+h3 {
+    text-align: center;
+    font-size: 35px;
+    color:rgb(25, 120, 73);
+    background-color: rgb(182, 21, 190);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    text-align: center;
+}
+#savedPasswords {
+    text-align: center;
+    font-family: apple chancery, comic sans, sans-serif;
+    padding: 80px 0 20px 0;
 }
